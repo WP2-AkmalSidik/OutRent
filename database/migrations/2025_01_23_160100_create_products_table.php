@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price_per_day', 10, 2); // Harga sewa per hari
             $table->integer('stock'); // Stok barang
+            $table->string('image')->nullable();
             $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade'); // Hubungkan ke tabel shops
             $table->timestamps();
         });

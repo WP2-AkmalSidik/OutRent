@@ -8,4 +8,11 @@ class Shop extends Model
 {
     protected $guarded = [];
 
+    /**
+     * Relasi ke model User.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

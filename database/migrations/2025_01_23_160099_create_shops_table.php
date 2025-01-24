@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('address');
             $table->text('description')->nullable();
+            $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Hubungkan ke pemilik toko
             $table->timestamps();
         });

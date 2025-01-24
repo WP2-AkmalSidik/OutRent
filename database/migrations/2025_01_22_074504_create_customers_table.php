@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone')->nullable(); // Nomor telepon pelanggan (optional)
             $table->string('address')->nullable(); // Alamat pelanggan (optional)
             $table->string('password');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
