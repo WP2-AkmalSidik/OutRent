@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->string('name');
-            $table->text('address');
-            $table->string('phone_number', 15);
+            $table->string('email')->unique();
+            $table->string('phone')->nullable(); // Nomor telepon pelanggan (optional)
+            $table->string('address')->nullable(); // Alamat pelanggan (optional)
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shops');
+        Schema::dropIfExists('customers');
     }
 };

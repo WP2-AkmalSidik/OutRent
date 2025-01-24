@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
             $table->string('name');
+            $table->text('address');
             $table->text('description')->nullable();
-            $table->decimal('price_per_day', 10, 2);
-            $table->integer('quantity');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Hubungkan ke pemilik toko
             $table->timestamps();
         });
+
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('shops');
     }
 };

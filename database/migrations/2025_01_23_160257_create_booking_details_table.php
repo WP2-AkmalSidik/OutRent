@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('booking_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->integer('quantity');
-            $table->decimal('price_per_day', 10, 2);
-            $table->decimal('total_price', 10, 2);
+            $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade'); // Hubungkan ke tabel bookings
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Hubungkan ke tabel products
+            $table->integer('quantity'); // Jumlah barang yang disewa
+            $table->decimal('price_per_day', 10, 2); // Harga per hari
+            $table->decimal('total_price', 10, 2); // Total harga untuk item ini
+            $table->timestamps();
         });
     }
 

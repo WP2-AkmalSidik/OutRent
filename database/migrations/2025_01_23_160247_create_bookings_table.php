@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['pending', 'confirmed', 'canceled', 'completed'])->default('pending');
-            $table->enum('delivery_option', ['pickup', 'delivery']);
-            $table->decimal('total_price', 10, 2);
-            $table->decimal('deposit_paid', 10, 2)->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade'); // Hubungkan ke tabel customers
+            $table->date('start_date'); // Tanggal mulai penyewaan
+            $table->date('end_date'); // Tanggal akhir penyewaan
+            $table->enum('status', ['pending', 'confirmed', 'completed', 'canceled'])->default('pending'); // Status booking
+            $table->decimal('total_price', 10, 2); // Total harga sewa
             $table->timestamps();
         });
     }
