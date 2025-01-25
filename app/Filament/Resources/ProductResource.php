@@ -74,10 +74,10 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('stock')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('shop.name')
                     ->label('Nama Toko')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->visible(fn() => Auth::user()->hasRole('admin')),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

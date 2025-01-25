@@ -17,7 +17,6 @@ class ShopResource extends Resource
 {
     protected static ?string $model = Shop::class;
 
-    protected static ?string $navigationGroup = 'Tenant';
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
     public static function form(Form $form): Form
