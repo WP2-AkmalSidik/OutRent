@@ -104,25 +104,25 @@ const ExploreTab = ({
   }
 
   return (
-    <div className="p-4">
-      <div className="mb-4 flex items-center bg-white rounded-lg shadow-sm">
-        <Search className="ml-3 text-gray-500" />
+    <div className="p-3">
+      <div className="mb-3 flex items-center bg-white rounded-lg shadow-sm">
+        <Search className="ml-2 text-gray-500 text-sm" size={18} />
         <input
           type="text"
           placeholder="Cari barang outdoor..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full p-3 rounded-lg focus:outline-none"
+          className="w-full p-2 text-sm rounded-lg focus:outline-none"
         />
       </div>
 
-      <div className="text-center mb-6">
-        <h1 className="text-4xl font-bold">
+      <div className="text-center mb-4">
+        <h1 className="text-3xl font-bold">
           <span className="text-[#172B46]">OUT</span>
           <span className="text-[#F1772A]">R</span>
           <span className="text-[#172B46]">ENT</span>
         </h1>
-        <p className="text-gray-600">Solusi Sewa Peralatan Outdoor.</p>
+        <p className="text-xs text-gray-600">Solusi Sewa Peralatan Outdoor</p>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
@@ -135,17 +135,17 @@ const ExploreTab = ({
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-32 object-cover"
             />
-            <div className="p-3">
-              <h3 className="font-semibold">{item.name}</h3>
-              <div className="flex justify-between items-center mt-2">
-                <span className="text-[#F1772A] font-bold">
+            <div className="p-2">
+              <h3 className="font-semibold text-sm truncate">{item.name}</h3>
+              <div className="flex justify-between items-center mt-1">
+                <span className="text-[#F1772A] font-bold text-xs">
                   Rp {item.price}/hari
                 </span>
                 <div className="flex items-center">
-                  <Star size={16} className="text-yellow-500 mr-1" />
-                  <span>{item.rating}</span>
+                  <Star size={12} className="text-yellow-500 mr-1" />
+                  <span className="text-xs">{item.rating}</span>
                 </div>
               </div>
               <div
@@ -158,7 +158,7 @@ const ExploreTab = ({
                     address: item.storeAddress
                   });
                 }}
-                className="mt-2 text-sm text-gray-600 hover:text-[#F1772A]"
+                className="mt-1 text-xs text-gray-600 hover:text-[#F1772A] truncate"
               >
                 {item.location}
               </div>
@@ -167,7 +167,7 @@ const ExploreTab = ({
                   e.stopPropagation();
                   setCartItems([...cartItems, item]);
                 }}
-                className="mt-2 w-full bg-[#F1772A] text-white py-2 rounded-md hover:bg-orange-600"
+                className="mt-1 w-full bg-[#F1772A] text-white py-1 rounded-md text-xs hover:bg-orange-600"
               >
                 Sewa Sekarang
               </button>
